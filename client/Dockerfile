@@ -6,6 +6,7 @@ WORKDIR /client
 ENV PATH /client/node_modules/.bin:$PATH
 # Instalando dependências da aplicação e armazenando em cache.
 COPY package.json /client/package.json
-RUN npm install
+RUN npm install --silent
+RUN npm install react-scripts@3.3.1 -g --silent
 # start app
 CMD ["npm", "start"]

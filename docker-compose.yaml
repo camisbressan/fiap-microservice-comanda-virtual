@@ -1,33 +1,41 @@
 version: '3'
-services: 
-  comanda-api: 
-    image: comanda
+services:
+  comanda-api:
+    #image: comanda
+    container_name: comanda-api
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '8080:8080'
       - '5005:5005'
+    deploy:
+      restart_policy:
+          condition: on-failure
+          delay: 5s
     networks:
-      - elk
+      - comanda
   db:
     image: mysql:5.6
     ports:
       - '3307:3306'
-    environment: 
-      - MYSQL_ROOT_HOST=%
+    environment:
+      - MYSQL_ROOT_HOST=0.0.0.0
       - MYSQL_DATABASE=comanda_virtual
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
     networks:
-      - elk
+      - comanda
   client:
     container_name: client
     build:
-      context: .
+      context: ./client
       dockerfile: Dockerfile
     ports:
       - '3001:3000'
     networks:
-      - elk
+      - comanda
 networks:
-  - elk
+  comanda:

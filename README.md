@@ -68,20 +68,6 @@ Ao abrir o projeto, entre na pasta `client` pelo terminal e execute `npm install
 
 ----
 
-### Inicialização do projeto com Docker Compose
-
-```bash
-# Clone deste repositório
-$ git clone https://github.com/carolldsk/ecoleta.git
-
-# Permissão do maven
-$ chmod +x mvnw
-
-# Docker Compose para definir como será o ambiente da aplicação
-$ docker-compose up -d
-
-```
-
 
 ### Imagem apenas do Front-end
 
@@ -103,5 +89,20 @@ $ docker pull carolldsk/comanda
 
 # Rodando imagem
 $ docker run --name comanda-it -p 8080:8080 -d carolldsk/comanda
+
+```
+
+
+### Inicialização do projeto com Docker Compose
+
+```bash
+# Clone deste repositório
+$ git clone https://github.com/carolldsk/ecoleta.git
+
+# Permissão do maven
+$ chmod +x mvnw
+
+# Docker Compose para definir como será o ambiente da aplicação
+$ docker-compose up -d
 
 ```

@@ -82,14 +82,13 @@ $ docker-compose up -d
 
 ```
 
+
 ### Imagem do Front-end
 
-imagem disponível em :
-
-![Postman](arquivos_uteis/imagem_front.png)
-
-
 ```bash
+# Baixando a imagem
+$ docker pull carolldsk/client
+
 # Rodando imagem
 $ docker run --name client -it -p 3000:3001 -d carolldsk/client
 
@@ -97,11 +96,10 @@ $ docker run --name client -it -p 3000:3001 -d carolldsk/client
 
 ### Imagem do Back-end
 
-imagem disponível em :
-
-![Postman](arquivos_uteis/imagem_back.png)
-
 ```bash
+
+# Baixando a imagem
+$ docker pull carolldsk/comanda
 
 # Rodando imagem
 $ docker run --name comanda-it -p 8080:8080 -d carolldsk/comanda

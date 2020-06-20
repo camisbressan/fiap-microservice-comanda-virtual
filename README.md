@@ -83,7 +83,7 @@ $ docker-compose up -d
 ```
 
 
-### Imagem do Front-end
+### Imagem apenas do Front-end
 
 ```bash
 # Baixando a imagem
@@ -94,7 +94,7 @@ $ docker run --name client -it -p 3000:3001 -d carolldsk/client
 
 ```
 
-### Imagem do Back-end
+### Imagem apenas do Back-end
 
 ```bash
 

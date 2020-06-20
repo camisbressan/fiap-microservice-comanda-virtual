@@ -67,3 +67,43 @@ Ao abrir o projeto, entre na pasta `client` pelo terminal e execute `npm install
 ![Postman](arquivos_uteis/testes.png)
 
 ----
+
+### Inicialização do projeto com Docker Compose
+
+```bash
+# Clone deste repositório
+$ git clone https://github.com/carolldsk/ecoleta.git
+
+# Permissão do maven
+$ chmod +x mvnw
+
+# Docker Compose para definir como será o ambiente da aplicação
+$ docker-compose up -d
+
+```
+
+### Imagem do Front-end
+
+imagem disponível em :
+
+![Postman](arquivos_uteis/imagem_front.png)
+
+
+```bash
+# Rodando imagem
+$ docker run --name client -it -p 3000:3001 -d carolldsk/client
+
+```
+
+### Imagem do Back-end
+
+imagem disponível em :
+
+![Postman](arquivos_uteis/imagem_back.png)
+
+```bash
+
+# Rodando imagem
+$ docker run --name comanda-it -p 8080:8080 -d carolldsk/comanda
+
+```

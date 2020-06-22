@@ -24,6 +24,7 @@ Tecnologias necessárias:
   - Spring Data JPA
   - MySQL
   - Swagger (Documentação)
+  - Docker e Docker Compose
   
  Front-end
   - Visual Code  

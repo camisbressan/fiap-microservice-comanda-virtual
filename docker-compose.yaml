@@ -15,11 +15,11 @@ services:
     #image: comanda
     depends_on:
       - db
-    #image: carolldsk/comanda:latest
-    container_name: comanda-api
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: carolldsk/comanda:latest
+    #container_name: comanda-api
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
     ports:
       - '8080:8080'
       - '5005:5005'
@@ -49,11 +49,11 @@ services:
     networks:
       - comanda
   client:
-    #image: carolldsk/comanda:latest
-    container_name: client
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    image: carolldsk/comanda:latest
+    #container_name: client
+    #build:
+    #  context: ./client
+    #  dockerfile: Dockerfile
     ports:
       - '3001:3000'
     deploy:

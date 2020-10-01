@@ -15,11 +15,11 @@ services:
     #image: comanda
     depends_on:
       - db
-    image: carolldsk/comanda:latest
-    #container_name: comanda-api
-    #build:
-    #  context: .
-    #  dockerfile: Dockerfile
+    #image: carolldsk/comanda:latest
+    container_name: comanda-api
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '8080:8080'
       - '5005:5005'
@@ -40,21 +40,20 @@ services:
           condition: on-failure
           delay: 5s
     environment:
-      #- MYSQL_ROOT_HOST=0.0.0.0
+      - MYSQL_ROOT_HOST=0.0.0.0
       - MYSQL_DATABASE=comanda_virtual
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_PASSWORD=root
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
     networks:
       - comanda
   client:
-    image: carolldsk/comanda:latest
-    #container_name: client
-    #build:
-    #  context: ./client
-    #  dockerfile: Dockerfile
+    #image: carolldsk/comanda:latest
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
     ports:
       - '3001:3000'
     deploy:

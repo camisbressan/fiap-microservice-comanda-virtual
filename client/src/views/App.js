@@ -24,7 +24,7 @@ class Pedidos extends Component {
                     unitValue: 15.00
                 },
             ],
-            baseUrl: "http://localhost:8080/v1/comanda",
+            baseUrl: "http://comanda-api:8080/v1/comanda",
             showSuccessScreen: false,
             IdSelectedProduct: 0,
             amountSelectedProduct: 1,

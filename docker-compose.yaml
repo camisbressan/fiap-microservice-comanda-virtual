@@ -40,10 +40,11 @@ services:
           condition: on-failure
           delay: 5s
     environment:
-      - MYSQL_ROOT_HOST=0.0.0.0
+      - MYSQL_ROOT_HOST=db:3306
       - MYSQL_DATABASE=comanda_virtual
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
     networks:

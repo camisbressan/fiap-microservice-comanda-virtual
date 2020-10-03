@@ -15,7 +15,7 @@ services:
     #image: comanda
     depends_on:
       - db
-    image: mbajoliveira/comanda:latest
+    image: mbajoliveira/comanda-api:latest
     #container_name: comanda-api
     #build:
     #  context: .

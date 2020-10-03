@@ -30,17 +30,17 @@ services:
           delay: 5s
     networks:
       - comanda
-  db:
+  db-api:
     image: mysql:5.6
     ports:
-      - '3307:3306'
+      - '3306:3306'
     deploy:
       replicas: 1
       restart_policy:
           condition: on-failure
           delay: 5s
     environment:
-      #- MYSQL_ROOT_HOST= db:3306
+      - MYSQL_ROOT_HOST=0.0.0.0
       - MYSQL_DATABASE=comanda_virtual
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root

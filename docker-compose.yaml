@@ -24,7 +24,7 @@ services:
       - '8080:8080'
       - '5005:5005'
     deploy:
-      replicas: 3
+      replicas: 2
       restart_policy:
           condition: on-failure
           delay: 5s
@@ -57,7 +57,7 @@ services:
     ports:
       - '3001:3000'
     deploy:
-      replicas: 3
+      replicas: 2
       restart_policy:
           condition: on-failure
           delay: 5s

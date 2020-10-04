@@ -35,7 +35,7 @@ services:
           condition: on-failure
           delay: 5s
     environment:
-      - MYSQL_ROOT_HOST=db:3306
+      - MYSQL_ROOT_HOST=%
       - MYSQL_DATABASE=comanda_virtual
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=root

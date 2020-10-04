@@ -1,16 +1,5 @@
 version: '3'
 services:
-  visualizador:
-    image: dockersamples/visualizer
-    volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
-    ports:
-    - '5000:5000'
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
-
   comanda-api:
     depends_on:
       - db
@@ -22,7 +11,6 @@ services:
       - '8080:8080'
       - '5005:5005'
     deploy:
-      replicas: 2
       restart_policy:
           condition: on-failure
           delay: 5s
@@ -33,7 +21,6 @@ services:
     ports:
       - '3306:3306'
     deploy:
-      replicas: 1
       restart_policy:
           condition: on-failure
           delay: 5s
@@ -54,7 +41,6 @@ services:
     ports:
       - '3000:3000'
     deploy:
-      replicas: 2
       restart_policy:
           condition: on-failure
           delay: 5s

@@ -14,10 +14,7 @@ services:
   comanda-api:
     depends_on:
       - db
-    container_name: comanda-api
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mbajoliveira/comanda-api-v2:latest
     ports:
       - '8080:8080'
       - '5005:5005'
@@ -40,17 +37,14 @@ services:
     environment:
       - MYSQL_ROOT_HOST=db:3306
       - MYSQL_DATABASE=comanda_virtual
-      - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
     volumes:
       - ./docker/volume_mysql:/var/lib/mysql
     networks:
       - comanda
   client:
-    container_name: client
-    build:
-      context: ./client
-      dockerfile: Dockerfile
+    image: mbajoliveira/comanda:latest
     ports:
       - '3000:3000'
     deploy:

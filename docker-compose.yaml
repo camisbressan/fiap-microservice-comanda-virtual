@@ -28,7 +28,7 @@ services:
           delay: 5s
     networks:
       - comanda
-  db-api:
+  db:
     image: mysql:5.6
     ports:
       - '3306:3306'

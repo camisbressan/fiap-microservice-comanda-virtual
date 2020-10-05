@@ -9,6 +9,13 @@ COPY src src
 RUN ./mvnw install -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
+FROM mysql:5.7
+
+RUN apt-get update \
+ && apt-get install --no-install-recommends -y tzdata \
+ && apt-get clean \
+ && rm -r /var/lib/apt/lists/*
+
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 ARG DEPENDENCY=/workspace/app/target/dependency

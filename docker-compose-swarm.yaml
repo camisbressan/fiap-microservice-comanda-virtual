@@ -1,60 +1,69 @@
-version: '3'
-services:
-  visualizador:
-    image: dockersamples/visualizer
-    volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
+version: '3' 
+services: 
+  visualizador: 
+    image: dockersamples/visualizer 
+    volumes: 
+    - "/var/run/docker.sock:/var/run/docker.sock" 
     ports:
-    - '5000:5000'
-    deploy:
-      placement:
-        constraints:
+    - '5000:5000' 
+    deploy: 
+      placement: 
+        constraints: 
           - node.role == manager
+ 
 
-  comanda-api:
-    depends_on:
-      - db
-    image: carolldsk/teste-api:latest
-    ports:
-      - '8080:8080'
-      - '5005:5005'
-    deploy:
-      replicas: 3
-      restart_policy:
+  comanda-api: 
+    depends_on: 
+      - db 
+    image: local #carolldsk/teste-api:latest 
+    ports: 
+      - '8080:8080' 
+      - '5005:5005' 
+    deploy: 
+      replicas: 3 
+      restart_policy: 
+          condition: on-failure 
+          delay: 5s 
+    networks: 
+      - comanda 
+
+  db: 
+    image: mysql:5.7 
+    ports: 
+      - '3306:3306' 
+    deploy: 
+      replicas: 1 
+      restart_policy: 
           condition: on-failure
-          delay: 5s
-    networks:
-      - comanda
-  db:
-    image: mysql:5.7
-    ports:
-      - '3306:3306'
-    deploy:
-      replicas: 1
-      restart_policy:
-          condition: on-failure
-          delay: 5s
-    environment:
-      - MYSQL_ROOT_HOST=db:3306
-      - MYSQL_ROOT_HOST=%
-      - MYSQL_DATABASE=comanda_virtual
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
-    volumes:
-      - ./docker/volume_mysql:/var/lib/mysql
-    networks:
-      - comanda
-  client:
-    image: mbajoliveira/comanda:latest
-    ports:
-      - '3000:3000'
-    deploy:
-      replicas: 3
-      restart_policy:
-          condition: on-failure
-          delay: 5s
-    networks:
-      - comanda
-networks:
-  comanda:
-    external: true
+          delay: 5s 
+
+    environment: 
+      - MYSQL_ROOT_HOST=db 
+      #- MYSQL_ROOT_HOST=% 
+      - MYSQL_DATABASE=comanda_virtual 
+      - MYSQL_ROOT_PASSWORD=root 
+      - MYSQL_USER=comanda 
+      - MYSQL_PASSWORD=comanda 
+    volumes: 
+      - volume_mysql:/var/lib/mysql 
+    networks: 
+      - comanda 
+
+  client: 
+    image: mbajoliveira/comanda:latest 
+    ports: 
+      - '3000:3000' 
+    deploy: 
+      replicas: 3 
+      restart_policy: 
+          condition: on-failure 
+          delay: 5s 
+    networks: 
+      - comanda 
+
+networks: 
+  comanda: 
+    external: true 
+
+volumes: 
+  volume_mysql: 

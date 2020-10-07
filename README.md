@@ -101,7 +101,7 @@ $ docker run --name comanda-it -p 8080:8080 -d carolldsk/comanda
 
 ```bash
 # Clone deste repositório
-$ git clone https://github.com/carolldsk/ecoleta.git
+$ git clone https://github.com/camisbressan/fiap-microservice-comanda-virtual.git
 
 # Permissão do maven
 $ chmod +x mvnw

@@ -1,5 +1,8 @@
 # Projeto Comanda Virtual FIAP - Turma 35SCJ
 
+## Explicando stack escolhida
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.loom.com/share/27f183a31b3641b7bc40d1aa8d64e359)
+
 ## Pré-requisitos para execução da aplicação de transação
 
 Tecnologias necessárias:
